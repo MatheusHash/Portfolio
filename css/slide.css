@@ -1,0 +1,112 @@
+/* Imagens */
+.Home-image{
+    background-image: url('../img/book.jpg');
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    display: flow-root;
+    min-width: 100vw;
+    max-width: 100vw;
+	min-height: 80vh;
+    max-height: 80vh;
+}
+.MinhaFoto{
+    background-image: url('../img/3.jpg');
+    background-size: auto;
+    background-position: left ;
+    background-repeat: no-repeat;
+    display: flow-root;
+    min-width: 100vw;
+    max-width: 100vw;
+	min-height: 80vh;
+	max-height: 80vh;
+}
+.foto3{
+    background-image: url('../img/praia.jpg');
+    background-size: cover;
+    background-position: center;
+
+    background-repeat: no-repeat;
+    display: flow-root;
+    min-width: 100vw;
+    max-width: 100vw;
+	min-height: 80vh;
+	max-height: 80vh;
+}
+
+
+/* Texto da imagem do certificado */
+
+.degrade-azul{
+    /* height: 30vh;
+    margin-top: 55vh; */
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100vw;
+    background: linear-gradient(0deg, #1192c9 0%, rgba(0, 0, 0, 0) 85%);
+    color: #fff;
+}
+
+
+
+/* Config do carrosel */
+.slide{
+    max-width: 100vw;
+    overflow: hidden;
+    transition: all 0.5s;
+}
+
+.slides{
+    display: flex;
+}
+
+
+#atual{
+    position: relative;
+    margin: 0;
+    transition: all 2s;
+}
+
+.altera{
+    /* position: absolute; */
+    display: flex;
+    justify-content: space-between;
+    margin-top: 90vh;
+    right: 5%;
+}
+
+.btn-slider{
+    display: none;
+}
+
+.btn-slider:hover{
+    transform: scale(1.5);
+}
+
+.balls{
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    margin-top: -45px;
+    position: bottom right;
+}
+
+.balls div{
+    transition: all 0.5s;
+    border: 3px solid #1192c9;
+    padding: 3px;
+    border-radius: 50%;
+    margin-right: 15px;
+    cursor: pointer;
+    position: relative;
+}
+
+.balls div:hover{
+    background-color: #1192c9;
+}
+
+.imgAtual{
+    transition: all 0.5s;
+    background-color: #1192c9;
+}

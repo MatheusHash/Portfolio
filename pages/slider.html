@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/slide.css">
+
+    <title>Slider</title>
+</head>
+<body>
+    <div class="slide">
+        <div class="slides">
+          <div id="voltar" class="btn-slider">a</div>
+          <div id="next" class="btn-slider">b</div>
+          
+          <div id="atual" class="image Home-image"></div>
+          <div id="atual" class="image MinhaFoto"></div>
+          <div id="atual" class="image foto3"></div>
+        </div>
+        <!-- Bolinhas de paginacao da img -->
+        <div class="balls"></div>
+      </div>
+      <!-- FIM carrosel -->
+      
+      <section class="sobre">
+          <h3 class="titulo">Conheça</h3>
+          <div class="container info">
+              <div class="quadro">
+                  <span class="titulo-secundario">Lugares</span>
+                  <p class="texto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. At iusto quas quo eaque, ea impedit quis? Maxime alias aliquam doloribus officiis dolores, libero at laudantium, cumque quisquam explicabo inventore quibusdam totam eos. Consectetur placeat harum provident suscipit illo rerum iste.</p>
+              </div>
+              <div class="quadro">
+                  <span class="titulo-secundario">Pessoas</span>
+                  <p class="texto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. At iusto quas quo eaque, ea impedit quis? Maxime alias aliquam doloribus officiis dolores, libero at laudantium, cumque quisquam explicabo inventore quibusdam totam eos. Consectetur placeat harum provident suscipit illo rerum iste.</p>
+              </div>
+          </div>
+        <div class="container texto-centralizado">
+            <div class="quadro">
+                <span class="titulo-secundario">Culturas</span>
+                <p class="texto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit eos ex possimus ea ut laborum iure, voluptas esse amet! Voluptatum dolorem iusto eveniet eius neque? Nemo, autem eum explicabo perspiciatis a reiciendis delectus voluptatem non. Id soluta aliquam molestias fuga magni, voluptatum iusto ipsum aperiam beatae ullam! Enim, veniam excepturi!</p>
+            </div>
+        </div>
+        <div class="container texto-centralizado">
+            <h4 class="frase">Escute músicas. Leia livros. Viaje.</h4>
+            <h4 class="texto-spaçado">Essência</h4>
+        </div>
+      </section>
+
+
+
+    <script type="text/javascript">
+        /* Carrosel */
+        var balls = document.querySelector('.balls');
+        var qtd = document.querySelectorAll(".slides .image");
+        var atual = 0;
+        var imagem = document.getElementById("atual");
+        var next = document.getElementById("next");
+        var voltar = document.getElementById("voltar");
+        var rolar= true;
+
+        for(let i=0;i<qtd.length;i++){
+            var div = document.createElement("div");
+            div.id= i;
+            balls.appendChild(div);
+        }
+        document.getElementById('0').classList.add("imgAtual");
+        var pos = document.querySelectorAll(".balls div");
+
+        for(let i=0;i<pos.length;i++){
+            pos[i].addEventListener('click', ()=>{
+                atual = pos[i].id;
+                rolar = false;
+                slide();
+            })
+        }
+        
+        voltar.addEventListener('click', ()=>{
+            atual--;
+            rolar = false;
+            slide();
+        })
+
+        next.addEventListener('click', ()=>{
+            atual++;
+            rolar = false;
+            slide();
+        })
+
+        function slide(){
+            if(atual >= qtd.length){
+                atual = 0;
+            }else if(atual < 0){
+                atual = qtd.length - 1;
+            }
+            document.querySelector(".imgAtual").classList.remove("imgAtual");
+            var altura = window. screen. height;
+            var largura = window. screen. width;
+            console.log("W: "+ largura);
+            imagem.style.marginLeft = -largura * atual + 'px';
+            document.getElementById(atual).classList.add('imgAtual');
+            // console.log("ID: "+ atual);
+        }
+
+
+        setInterval(() => {
+            if(rolar){
+                atual++;
+                slide();
+            }else{
+                rolar=true;
+            }
+        },7000);
+    </script>
+</body>
+</html>
