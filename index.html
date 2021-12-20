@@ -28,11 +28,23 @@
     
         <main>
             <section class="Campos">
-                <button id="curtir" class="btn-send" type="submit" onclick="curtir()">Curtir</button>
+                <button id="link" class="btn-send" type="submit">Entrar em contato</button>
                 <span id="likes">13 likes</span> 
             </section>
         </main>
     </div>
 
+    <script>   
+        var url = "https://wa.me/qr/QCEXWXJPOZUZJ1";
+        var btn = document.querySelector("#link");
+        function openInNewTab(url) {
+        var win = window.open(url, '_blank');
+        win.focus();
+        }
+        btn.addEventListener('click', function() {
+            
+        openInNewTab(url);
+        });
+    </script>
 </body>
 </html>
